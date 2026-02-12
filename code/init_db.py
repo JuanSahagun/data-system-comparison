@@ -1,12 +1,16 @@
 """
-Initialize the database by creating the necesary tables.
+Initialize the database by creating the schemas for all
+tables in the dataset.
 """
 import psycopg
 from pathlib import Path
 
+# File names that hold table schemas
 SCHEMA_FILES = ["staging-schemas.sql"]
 SCHEMA_DIR = Path(__file__).resolve().parent / "table-schemas"
 
+
+# Use a cursor to execute the file in the provided path.
 def run_sql(cur: psycopg.Cursor, path: Path) -> None:
     cur.execute(path.read_text(encoding="utf-8"))
 
@@ -20,8 +24,6 @@ def main() -> None:
             # Create the staging tables
             for file in SCHEMA_FILES:
                 run_sql(cur, SCHEMA_DIR / file)
-        # Comit any pending trasnaction to the db
-        con.commit()
 
 
 if __name__ == "__main__":
