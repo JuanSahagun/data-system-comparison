@@ -1,6 +1,7 @@
 -- Schema for all of the staging tables
 CREATE SCHEMA IF NOT EXISTS staging;
 
+-- Titles and basic info about them
 CREATE TABLE IF NOT EXISTS staging.title_basics (
     tconst TEXT,
     titleType TEXT,
@@ -13,13 +14,20 @@ CREATE TABLE IF NOT EXISTS staging.title_basics (
     genres TEXT
 )
 
+-- The writers and directors of a title
 CREATE TABLE IF NOT EXISTS staging.title_crew (
     tconst TEXT,
     directors TEXT,
     writers TEXT
 )
 
+-- People info
 CREATE TABLE IF NOT EXISTS staging.name_basics (
-    nconst TEXT
+    nconst TEXT,
+    primaryName TEXT,
+    birthYear TEXT,
+    deathYear TEXT,
+    primaryProfession TEXT,
+    knownForTitles TEXT
 )
 
