@@ -12,3 +12,14 @@ CREATE TABLE IF NOT EXISTS staging.title_basics (
     runtimeMinutes TEXT,
     genres TEXT
 )
+
+CREATE TABLE IF NOT EXISTS staging.title_crew (
+    tconst TEXT,
+    directors TEXT,
+    writers TEXT
+)
+
+CREATE TABLE IF NOT EXISTS staging.name_basics (
+    nconst TEXT
+)
+
